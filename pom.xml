@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>vuelearn</artifactId>
+    <groupId>com.vuelearn</groupId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+
+    <modules>
+        <module>vuelearn-so</module>
+        <module>vuelearn-api</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <id>exec-npm-install</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>npm</executable>
+                            <arguments>
+                                <argument>install</argument>
+                            </arguments>
+                            <workingDirectory>${basedir}/${project.name}-fe</workingDirectory>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>exec-npm-run-build</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>npm</executable>
+                            <arguments>
+                                <argument>run</argument>
+                                <argument>build</argument>
+                                <!--<argument>${env}</argument>-->
+                            </arguments>
+                            <workingDirectory>${basedir}/${project.name}-fe</workingDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>mvn-copy-file</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <tasks>
+                        <delete dir="${basedir}/target" />
+                        <mkdir dir="${basedir}/target"/>
+                        <copy todir="${basedir}/target">
+                            <fileset dir="${basedir}/${project.name}-os/target" includes="**"/>
+                        </copy>
+                        <copy file="${basedir}/${project.name}-fe/dist/index.html" tofile="${basedir}/target/${project.name}/index.html" overwrite="true" />
+                        <delete dir="${basedir}/target/${project.name}/static" />
+                        <mkdir dir="${basedir}/target/${project.name}/static"/>
+                        <copy todir="${basedir}/target/${project.name}/static">
+                            <fileset dir="${basedir}/${project.name}-fe/dist/static" includes="**"/>
+                        </copy>
+                    </tasks>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

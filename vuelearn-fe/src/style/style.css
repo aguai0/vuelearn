@@ -1,0 +1,60 @@
+
+.app-container .top-15 {
+  margin-top: 15px;
+}
+.app-container .el-table .el-table__header thead tr {
+  font-weight: bolder;
+}
+.app-container .el-select {
+  width: 100%;
+}
+.app-container .el-table .el-button--text {
+  padding: 0;
+}
+.app-container .table-wrapper {
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 2px 3px 0 #ddd;
+}
+.app-container .el-tabs {
+  padding: 20px 20px 0;
+}
+.app-container .el-tabs__header {
+  margin-bottom: 0;
+}
+.app-container .single-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+.app-container .single-header h1 {
+  color: #409eff;
+  font-size: 28px;
+  line-height: 28px;
+  font-weight: bolder;
+  border-left: 3px solid #409eff;
+  padding-left: 15px;
+}
+.app-container .choose-input .el-input {
+  width: 80%;
+}
+.app-container .row-title {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+.app-container .row-title h2 {
+  color: #409eff;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: bolder;
+  border-left: 2px solid #409eff;
+  padding-left: 10px;
+  margin-right: 20px;
+}
+.app-container .app-form-main {
+  border: 1px solid #333;
+}
+
+
