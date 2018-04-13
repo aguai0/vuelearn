@@ -8,7 +8,7 @@
     <version>1.0.0</version>
 
     <modules>
-        <module>vuelearn-so</module>
+        <module>vuelearn-os</module>
         <module>vuelearn-api</module>
     </modules>
 
@@ -17,7 +17,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
+                <version>1.3.2</version>
                 <executions>
                     <execution>
                         <id>exec-npm-install</id>
@@ -45,7 +45,7 @@
                             <arguments>
                                 <argument>run</argument>
                                 <argument>build</argument>
-                                <!--<argument>${env}</argument>-->
+                                <argument>development</argument>
                             </arguments>
                             <workingDirectory>${basedir}/${project.name}-fe</workingDirectory>
                         </configuration>
