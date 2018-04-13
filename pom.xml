@@ -45,7 +45,7 @@
                             <arguments>
                                 <argument>run</argument>
                                 <argument>build</argument>
-                                <argument>development</argument><!-- todo 根据环境改变 -->
+                                <!-- <argument>development</argument> todo 根据环境改变 -->
                             </arguments>
                             <workingDirectory>${basedir}/${project.name}-fe</workingDirectory>
                         </configuration>
