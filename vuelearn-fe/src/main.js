@@ -10,7 +10,7 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/style/style.css'
-import {parseRoute, getDynamicUrl} from '@/utils'
+import {parseRoute} from '@/utils'
 import store from '@/store/index'
 // import {apiMenus} from '@/service/api'
 import menus from '@/constant/menu'
@@ -18,7 +18,7 @@ import Request from '@/service/request'
 
 Vue.use(Router)
 Vue.use(ElementUI)
-Vue.use(Request, {loginUrl: getDynamicUrl('')})
+Vue.use(Request)
 
 const routeList = parseRoute(menus).concat([{
   path: '*',

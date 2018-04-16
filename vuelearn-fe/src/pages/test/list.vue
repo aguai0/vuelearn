@@ -50,6 +50,14 @@
       </el-table>
     </el-col>
     <el-col :span="24" class="top-15">
+      <el-pagination
+        :background="true"
+        @current-change="search"
+        :current-page.sync="query.currentPage"
+        :page-size="query.pageSize"
+        layout="total, prev, pager, next"
+        :total="total">
+      </el-pagination>
     </el-col>
     <el-col :span="24">
       <el-dialog title="设置" :before-close="handleClose" :visible.sync="dialogShow" width="50%">
@@ -142,21 +150,18 @@ export default {
     }
   },
   methods: {
-    reSearch (size) {
-      this.query.pageSize = size
-      this.search()
-    },
     resetAndSearch () {
       this.query.currentPage = 1
       this.search()
     },
+    choose (item) {
+    },
     search () {
       config.query(this.query)
-        .then((data) => {
-          if (data.status === 0) {
-            this.tableData = data.re.datas
-            this.query.currentPage = data.re.currentPage
-            this.currentHoliday = ''
+        .then((res) => {
+          if (res) {
+            this.tableData = res.datas
+            this.total = res.total
           }
         })
     },

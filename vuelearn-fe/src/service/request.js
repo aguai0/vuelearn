@@ -5,17 +5,13 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 
 const envMap = {
   development: '',
-  test: 'test',
-  test2: 'test02',
-  test3: 'test03',
-  preProduct: 'pre',
   product: ''
 }
 
 export default function install (Vue, options) {
   window.getDynamicUrl = url => {
     if (!window.runtime_env) return url
-    return url.replace(/(.+)\.test.com/, `$1${envMap[window.runtime_env]}.test.com`)
+    return url.replace(/(.+)\.xxx.com/, `$1${envMap[window.runtime_env]}.xxx.com`)
   }
 
   axios.interceptors.response.use((response) => {

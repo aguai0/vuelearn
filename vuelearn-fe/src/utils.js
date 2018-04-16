@@ -117,5 +117,5 @@ export const getDynamicUrl = url => {
   }
   // window.runtime_env 在build/webpack.dev.conf.js|build/webpack.prod.conf.js中定义, 旨在标注当前代码运行以及打包时的环境
   if (!window.runtime_env) return url
-  return url.replace(/(.+)\.test.com/, `$1${envMap[window.runtime_env]}.test.com`)
+  return url.replace(/(.+)\.xxx.com/, `$1${envMap[window.runtime_env]}.xxx.com`)
 }

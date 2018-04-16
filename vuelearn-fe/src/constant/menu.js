@@ -13,7 +13,7 @@ export default [
   {
     title: 'test2管理',
     icon: 'el-icon-date',
-    path: '_test',
+    path: '_test1',
     subMenus: [
       {
         title: '测试',
